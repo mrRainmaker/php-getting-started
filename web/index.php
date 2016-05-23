@@ -19,10 +19,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Herrera\Pdo\PdoServiceProvider(),
   array(
-    'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"],
-    'pdo.port' => $dbopts["port"],
-    'pdo.username' => $dbopts["user"],
-    'pdo.password' => $dbopts["pass"]
+    'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["dacqc1kplgok5f"],'/').';host='.$dbopts["ec2-54-243-202-113.compute-1.amazonaws.com"],
+    'pdo.port' => $dbopts["5432"],
+    'pdo.username' => $dbopts["kuzrdpmzrwfkum"],
+    'pdo.password' => $dbopts["hyyrZHM7CA5zpGvpJ5PkBg2aNl"]
   )
 );
 
@@ -34,7 +34,7 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/db/', function() use($app) {
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
+  $st = $app['pdo']->prepare('SELECT * FROM votes');
   $st->execute();
 
   $names = array();
