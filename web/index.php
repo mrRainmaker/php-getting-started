@@ -16,7 +16,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 // Register the Postgres database add-on
-$dbopts = parse_url(getenv('DATABASE_URL'));
+$dbopts = parse_url(getenv('postgres://kuzrdpmzrwfkum:hyyrZHM7CA5zpGvpJ5PkBg2aNl@ec2-54-243-202-113.compute-1.amazonaws.com:5432/dacqc1kplgok5f'));
 $app->register(new Herrera\Pdo\PdoServiceProvider(),
   array(
     'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["dacqc1kplgok5f"],'/').';host='.$dbopts["ec2-54-243-202-113.compute-1.amazonaws.com"],
